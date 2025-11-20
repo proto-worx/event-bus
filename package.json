@@ -2,18 +2,28 @@
   "name": "@protoworx/event-bus",
   "module": "index.ts",
   "type": "module",
+  "version": "0.0.0-development",
   "exports": {
     ".": "./index.ts"
   },
   "scripts": {
     "test": "bun test",
     "build": "tsc",
+    "semantic-release": "semantic-release",
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "semantic-release": "^25.0.2"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

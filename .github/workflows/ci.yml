@@ -21,3 +21,6 @@ jobs:
 
       - name: Run tests
         run: bun test
+
+      - name: Check types
+        run: bun check-types
