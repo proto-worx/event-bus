@@ -99,3 +99,25 @@ describe("EventBus: Behavior", () => {
     expect(eventBus.get("listeners")).toStrictEqual(new Map());
   });
 });
+
+describe("EventBus: Search", () => {
+  it("should search for an event by name", () => {
+    const eventBus = new EventBus();
+    eventBus.subscribe(
+      "test",
+      mock(() => {})
+    );
+    eventBus.subscribe(
+      "test2",
+      mock(() => {})
+    );
+    expect(eventBus.search("test")).toEqual([
+      ["test", new Set([mock(() => {})])],
+      ["test2", new Set([mock(() => {})])],
+    ]);
+
+    expect(eventBus.search("test2")).toEqual([
+      ["test2", new Set([mock(() => {})])],
+    ]);
+  });
+});
