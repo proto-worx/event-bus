@@ -106,6 +106,7 @@ export class EventBus<
    * @returns The event if found, otherwise undefined
    */
   search(name: string) {
+    // comments to trigger a release
     return Array.from(this.listeners.entries()).filter(
       ([event]) => typeof event === "string" && event.includes(name)
     );
