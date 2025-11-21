@@ -33,5 +33,5 @@
     "noPropertyAccessFromIndexSignature": false
   },
   "include": ["index.ts", "lib/**/*.ts"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+  "exclude": ["node_modules", "dist"]
 }

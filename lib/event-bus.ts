@@ -1,5 +1,5 @@
 class EventBusCore<TDefinedMappings extends { [key: string]: any }> {
-  private listeners: Map<
+  protected listeners: Map<
     keyof TDefinedMappings,
     Set<(event: TDefinedMappings[keyof TDefinedMappings]) => void>
   > = new Map();
@@ -98,5 +98,16 @@ export class EventBus<
 > extends EventBusCore<TDefinedMappings> {
   constructor() {
     super();
+  }
+
+  /**
+   * Search for an event by name or partial match
+   * @param name - The name of the event to search for
+   * @returns The event if found, otherwise undefined
+   */
+  search(name: string) {
+    return Array.from(this.listeners.entries()).filter(
+      ([event]) => typeof event === "string" && event.includes(name)
+    );
   }
 }
